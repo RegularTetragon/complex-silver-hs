@@ -1,5 +1,8 @@
 module ComplexSilver.Level where
 import Apecs
 import ComplexSilver.World
-
--- loadLevel :: String -> IO (System World ())
+import Data.Tiled.Load
+loadLevel :: FilePath -> IO (System World ())
+loadLevel filePath = do
+    tiledMap <- loadMapFile filePath
+    
