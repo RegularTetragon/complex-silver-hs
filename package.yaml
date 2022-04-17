@@ -25,6 +25,10 @@ dependencies:
 - linear >= 1.21.8 && < 2
 - apecs-gloss
 - apecs-physics
+- bytestring
+- JuicyPixels
+- gloss
+- JuicyPixels-repa >= 0.7.1.0 && < 0.8
 
 library:
   source-dirs: src

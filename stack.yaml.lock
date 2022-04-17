@@ -18,6 +18,13 @@ packages:
       sha256: 3535296d47fefbf55040d769338587ba5378bdc01cb56f38698d84683c2cfe2d
   original:
     hackage: linear-1.21.8
+- completed:
+    hackage: JuicyPixels-repa-0.7.1.0@sha256:ffbebd96efbf6af83eb14ee9c89259acf5a9a7d504644f2a35577bd66406ae69,898
+    pantry-tree:
+      size: 222
+      sha256: 951d640678453f8e41fa6aac78eed1fea260d71152abfcd1b7e8c2fe936d2581
+  original:
+    hackage: JuicyPixels-repa-0.7.1.0@sha256:ffbebd96efbf6af83eb14ee9c89259acf5a9a7d504644f2a35577bd66406ae69
 snapshots:
 - completed:
     size: 618683

@@ -42,6 +42,7 @@ packages:
 extra-deps:
 - apecs-0.9.4
 - linear-1.21.8
+- JuicyPixels-repa-0.7.1.0@sha256:ffbebd96efbf6af83eb14ee9c89259acf5a9a7d504644f2a35577bd66406ae69
 
 # Override default flag values for local packages and extra-deps
 # flags: {}

@@ -1,0 +1,6 @@
+2022-04-16 22:19:51.004678668000 [6045(ThreadId 21)] ERROR APP - [CRITICAL] can not get the initial ghci prompt.
+2022-04-16 22:26:11.374128103000 [7099(ThreadId 21)] ERROR APP - start debugging failed. user error (ExecResult not found.) : Left "user error (ExecResult not found.)"
+2022-04-16 22:28:42.905825387000 [7289(ThreadId 21)] CRITICAL APP - invalid dap result from ghci. ["apecs-physics: Initializing new Space, Chipmunk v7.0.3 (Debug Enabled)","apecs-physics: Compile with the -frelease (cabal) or --flag apecs-physics:release (stack) to disable debug mode and runtime assertion checks"]
+2022-04-16 22:29:13.630083947000 [7433(ThreadId 21)] ERROR APP - invalid dap result from ghci. ["apecs-physics: Initializing new Space, Chipmunk v7.0.3 (Debug Enabled)","apecs-physics: Compile with the -frelease (cabal) or --flag apecs-physics:release (stack) to disable debug mode and runtime assertion checks"]
+2022-04-16 22:29:15.524402765000 [7433(ThreadId 21)] CRITICAL APP - <file descriptor: 142>: hPutChar: resource vanished (Broken pipe)
+2022-04-16 22:30:12.961612300000 [7915(ThreadId 20)] CRITICAL REQUEST - invalid HANDLE. eof.
