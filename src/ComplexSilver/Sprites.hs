@@ -1,3 +1,4 @@
+{-# LANGUAGE TypeFamilies #-}
 module ComplexSilver.Sprites where
 
 import qualified Data.ByteString as BS
@@ -5,7 +6,8 @@ import Codec.Picture.Repa
 import Codec.Picture.Types (DynamicImage (ImageRGBA8), Image (imageWidth, imageHeight, imageData))
 import Graphics.Gloss.Data.Bitmap
 import Apecs.Gloss
-errorPicture = Line ([(-8,-8),(8,8)]) <> Line ([(-8,8), (8, -8)])
+import Apecs
+errorPicture = Line [(-8,-8),(8,8)] <> Line [(-8,8), (8, -8)]
 --https://stackoverflow.com/questions/12222728/png-to-bmp-in-haskell-for-gloss
 readPng :: FilePath -> Int -> Int -> IO Picture
 readPng path w h = readImageRGBA path >>= handle
@@ -15,7 +17,7 @@ readPng path w h = readImageRGBA path >>= handle
       return $ bitmapOfByteString w h (BitmapFormat TopToBottom PxRGBA) bs True
     handle (Left str) = do
       print str
-      return $ errorPicture
+      return errorPicture
 
 readSpritemap :: FilePath -> Int -> Int -> Int -> Int -> IO [Picture]
 readSpritemap path w h tileW tileH = do
@@ -30,3 +32,17 @@ readSpritemap path w h tileW tileH = do
           rectSize = (tileW, tileH)
         }
       ) bmpData
+
+data Animation = Animation {
+    animReel     :: [Picture]
+,   animSpeed    :: Double
+,   animTime     :: Double
+,   animState    :: Int
+}
+instance Component Animation where
+    type Storage Animation = Map Animation
+
+
+newtype SpriteSheets = SpriteSheets [(String, [Picture])]
+instance Component SpriteSheets where
+    type Storage SpriteSheets = Map SpriteSheets

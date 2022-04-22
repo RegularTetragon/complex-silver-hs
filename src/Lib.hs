@@ -1,7 +1,6 @@
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
 {-# LANGUAGE ScopedTypeVariables   #-}
-{-# LANGUAGE TemplateHaskell       #-}
 {-# LANGUAGE TypeFamilies          #-}
 
 module Lib
@@ -11,23 +10,19 @@ import Apecs
 import Apecs.Physics
 import Apecs.Physics.Gloss
 import Linear (V2(..))
-import ComplexSilver.Sprites (readSpritemap)
+import ComplexSilver.Sprites (readSpritemap, Animation (..))
 import ComplexSilver.World
+import ComplexSilver.Level
 
 import System.Exit
 import Control.Monad
 import Data.Monoid
 import Data.Semigroup (Semigroup)
 import GHC.Float
+import ComplexSilver.Systems.Animation
 
 collisionFilter = CollisionFilter 1 maskAll maskAll
 material = (Friction 0.4, Elasticity 0.8, Density 1)
-
-stepAnimation :: Double -> System World ()
-stepAnimation dt = cmap $ \(anim :: Animation)->anim {
-    animTime  = animTime anim + animSpeed anim * dt
-,   animState = (floor $ animTime anim) `mod` (length $ animReel anim)
-}
 
 mkPlayer :: [Picture] -> WVec -> System World Entity
 mkPlayer sprites position = do
@@ -71,7 +66,7 @@ handleEvent event = return ()
 
 initialize :: [Picture] -> System World ()
 initialize spr = do
-    set global (earthGravity)
+    set global earthGravity
     mkPlayer spr 0
     return ()
 
@@ -82,5 +77,6 @@ someFunc = do
     w <- initWorld
     sprites <- readSpritemap "/home/vince/Desktop/complex-silver/resources/sprites/sprites.png" 128 128 8 8
     runWith w $ do
+        level <- liftIO $ loadLevel "~"
         initialize $ scale 8 8 <$> sprites
         play display black 60 draw handleEvent $ step . float2Double

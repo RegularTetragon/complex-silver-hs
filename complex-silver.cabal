@@ -27,6 +27,8 @@ library
   exposed-modules:
       ComplexSilver.Level
       ComplexSilver.Sprites
+      ComplexSilver.Systems.Animation
+      ComplexSilver.Systems.Spritesheet
       ComplexSilver.World
       Lib
   other-modules:
@@ -41,7 +43,9 @@ library
     , apecs-physics
     , base >=4.7 && <5
     , bytestring
+    , containers
     , gloss
+    , htiled >=0.1.4.0 && <0.2
     , linear >=1.21.8 && <2
   default-language: Haskell2010
 
@@ -61,7 +65,9 @@ executable complex-silver-exe
     , base >=4.7 && <5
     , bytestring
     , complex-silver
+    , containers
     , gloss
+    , htiled >=0.1.4.0 && <0.2
     , linear >=1.21.8 && <2
   default-language: Haskell2010
 
@@ -82,6 +88,8 @@ test-suite complex-silver-test
     , base >=4.7 && <5
     , bytestring
     , complex-silver
+    , containers
     , gloss
+    , htiled >=0.1.4.0 && <0.2
     , linear >=1.21.8 && <2
   default-language: Haskell2010

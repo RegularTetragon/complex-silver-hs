@@ -29,7 +29,8 @@ dependencies:
 - JuicyPixels
 - gloss
 - JuicyPixels-repa >= 0.7.1.0 && < 0.8
-
+- htiled >=0.1.4.0 && <0.2
+- containers
 library:
   source-dirs: src
 

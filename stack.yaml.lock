@@ -24,7 +24,49 @@ packages:
       size: 222
       sha256: 951d640678453f8e41fa6aac78eed1fea260d71152abfcd1b7e8c2fe936d2581
   original:
-    hackage: JuicyPixels-repa-0.7.1.0@sha256:ffbebd96efbf6af83eb14ee9c89259acf5a9a7d504644f2a35577bd66406ae69
+    hackage: JuicyPixels-repa-0.7.1.0
+- completed:
+    hackage: htiled-0.1.4.0@sha256:df4810df8559bf9d74fb7cdfd894380837be25c8bee831027fd30bd2cabb9b81,990
+    pantry-tree:
+      size: 334
+      sha256: eccdb4f03d186f6cd25770fc4bfefd4652c08b49ab9bde6803da694e8ed32bd1
+  original:
+    hackage: htiled-0.1.4.0
+- completed:
+    hackage: containers-0.5.11.0@sha256:1af9da3baaddc4f4aaea016b07d4c38ddbf702ce3f0df31120531950837996b8,17308
+    pantry-tree:
+      size: 4849
+      sha256: febf797e5b9c013e0390cffbec266b46c68de56cd3745df6ee45d4bcff1e7cb2
+  original:
+    hackage: containers-0.5.11.0
+- completed:
+    hackage: Cabal-3.6.3.0@sha256:ff97c442b0c679c1c9876acd15f73ac4f602b973c45bde42b43ec28265ee48f4,12459
+    pantry-tree:
+      size: 19757
+      sha256: b250a53bdb56844f047a2927833bb565b936a289abfa85dfc2a63148d776368a
+  original:
+    hackage: Cabal-3.6.3.0
+- completed:
+    hackage: binary-0.8.9.0@sha256:9cac9a1d86bfa3e7f75cc8bffaa256f3967ebb6d76f67a42f9679384c5c5e18a,6523
+    pantry-tree:
+      size: 1976
+      sha256: 61308af6be2cdb6ba09390d35f3fa1ebb45e3af688bf04922658532398eaa276
+  original:
+    hackage: binary-0.8.9.0
+- completed:
+    hackage: parsec-3.1.15.0@sha256:a162d4cc8884014ba35192545cad293af0529fe11497aad8834bbaaa3dfffc26,4429
+    pantry-tree:
+      size: 2630
+      sha256: cbddc1e3c5ada6925354850cc0a8fadcd8643689098a504a0ed25ef9e0b932b8
+  original:
+    hackage: parsec-3.1.15.0
+- completed:
+    hackage: text-1.2.5.0@sha256:791f0f6c97ed96113f17ab520cf0efe1a3a4f883a8c85910a5660567c8241c40,7895
+    pantry-tree:
+      size: 7395
+      sha256: f41504ec5c04a3f3358ef104362f02fdef29cbce4e5e4e6dbd6b6db70c40d4bf
+  original:
+    hackage: text-1.2.5.0
 snapshots:
 - completed:
     size: 618683
