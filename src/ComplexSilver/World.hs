@@ -9,6 +9,8 @@ import Apecs
 import Apecs.Physics
 import Apecs.Physics.Gloss
 import ComplexSilver.Sprites
+import ComplexSilver.Components.CameraTarget
+import ComplexSilver.Components.Player
 
 
-makeWorld "World" [''Camera, ''Animation, ''Physics, ''SpriteSheets]
+makeWorld "World" [''Camera, ''Animation, ''Physics, ''SpriteSheets, ''CameraTarget, ''PlayerMovement]

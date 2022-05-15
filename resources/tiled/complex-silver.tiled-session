@@ -4,6 +4,14 @@
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "maps/untitled.tmx": {
+            "scale": 1.4992187499999998,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 20.01042209484106,
+                "y": -9.671704012506524
+            }
+        },
         "tilesets/sprites.tsx": {
             "scaleInEditor": 1
         }
@@ -13,6 +21,7 @@
     ],
     "project": "complex-silver.tiled-project",
     "recentFiles": [
+        "maps/untitled.tmx",
         "tilesets/sprites.tsx"
     ]
 }

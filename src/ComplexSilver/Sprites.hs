@@ -21,6 +21,7 @@ readPng path w h = readImageRGBA path >>= handle
 
 readSpritemap :: FilePath -> Int -> Int -> Int -> Int -> IO [Picture]
 readSpritemap path w h tileW tileH = do
+  print path
   (Bitmap bmpData) <- readPng path w h
   return $ do
     y <- [0..h `div` tileH]
