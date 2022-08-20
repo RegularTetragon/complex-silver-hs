@@ -27,6 +27,7 @@ import qualified Control.Monad.Trans.State as St
 import ComplexSilver.Systems.CameraTarget (stepCamera)
 import ComplexSilver.Components.Player
 import ComplexSilver.Systems.Player
+import ComplexSilver.Systems.Grounded
 
 collisionFilter = CollisionFilter 1 maskAll maskAll
 material = (Friction 0.4, Elasticity 0.2, Density 1)
@@ -36,7 +37,9 @@ square = Line[(-16,-16), (16,-16), (16,16), (-16,16), (-16,-16)]
 
 
 draw :: SystemT World IO Picture
-draw = foldDraw $ \(animation :: Animation, pos :: Position) ->
+draw = do
+    foldDrawM $ drawBody
+    foldDraw $ \(animation :: Animation, pos :: Position) ->
         color white . translate' pos $ animReel animation !! animState animation
     where
         translate' (Position (V2 x y)) = translate (double2Float x) (double2Float y)
@@ -46,9 +49,10 @@ step :: Double -> SystemT World IO ()
 step dT = do
     cmap $ \(_::Shape) -> material
     sequence_ $ ($dT) <$> [
+        stepGrounded,
+        stepPhysics,
         stepAnimation,
         stepPlayer,
-        stepPhysics,
         stepCamera
         ]
 
@@ -62,15 +66,14 @@ handleEvent (EventKey key state modifiers (x,y)) = do
     when (key == SpecialKey KeySpace) $ 
         cmap (\movement->movement { jumping = state == Down })
 
-handleEvent e = liftIO $ print e
+handleEvent e = return ()
+-- handleEvent e = liftIO $ print e
 
 initialize :: SystemT World IO ()
 initialize = do
-    set global (Gravity (V2 0 (-200)))
+    set global (Gravity (V2 0 (-800)))
     set global $ SpriteSheets []
     set global $ Camera 0 4
-    return ()
-
 display = InWindow "Complex-Silver" (1280, 720) (10, 10)
 
 someFunc :: IO ()

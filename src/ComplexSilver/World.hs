@@ -13,4 +13,11 @@ import ComplexSilver.Components.CameraTarget
 import ComplexSilver.Components.Player
 
 
-makeWorld "World" [''Camera, ''Animation, ''Physics, ''SpriteSheets, ''CameraTarget, ''PlayerMovement]
+makeWorld "World" [
+    ''Camera,
+    ''Animation,
+    ''Physics,
+    ''SpriteSheets,
+    ''CameraTarget,
+    ''PlayerMovement,
+    ''Grounded]
