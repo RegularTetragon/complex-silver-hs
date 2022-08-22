@@ -20,6 +20,7 @@
         }
     },
     "last.imagePath": "/home/vince/Desktop/complex-silver/resources/sprites",
+    "map.lastUsedFormat": "tmx",
     "openFiles": [
         "tilesets/sprites.tsx",
         "maps/untitled.tmx"

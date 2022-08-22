@@ -8,6 +8,7 @@ import Data.Word
 import ComplexSilver.Systems.Spritesheet
 import ComplexSilver.Components.CameraTarget
 import ComplexSilver.Systems.Grounded
+import Data.Functor
 
 consFail :: WVec -> SystemT World IO Entity
 consFail pos = do
@@ -26,17 +27,17 @@ consSolid sprite_id pos = do
             animTime = 0.0
         }
         )
-    rigidBody <- newEntity $ Shape entity $ cRectangle 4
+    rigidBody <- newEntity $ Shape entity $ cRectangle 8
 
     return entity
 
 consPickup :: Int -> SystemT World IO ()-> WVec -> SystemT World IO Entity
 consPickup spriteId onPickup position = do
     sprite <- sprite_sheet_0 spriteId
-    newEntity (
+    entity <- newEntity (
         StaticBody,
         Position position,
-        Sensor True,
+        Sensor False,
         Animation {
             animReel = [sprite],
             animSpeed = 0,
@@ -44,17 +45,16 @@ consPickup spriteId onPickup position = do
             animState = 0
         }
         )
-    -- rigidBody <- newEntity $ Shape entity $ zRectangle 8
+    rigidBody <- newEntity $ Shape entity $ cRectangle 8
+    return $ entity
 
 consPlayer :: WVec -> SystemT World IO Entity
 consPlayer position = do
     sprites <- sequence $ sprite_sheet_0 <$> [1,2]
-    let playerShape = cCircle 4
     player <- newEntity
         (
             DynamicBody,
             Position position,
-            Angle 0,
             PlayerMovement {
                 movingRight = False,
                 movingLeft = False,
@@ -70,16 +70,16 @@ consPlayer position = do
             },
             Grounded False
         )
-    precollisionCallback <- mkPreSolveCB  $
-        \col->do
-            isGrounded <- checkGrounded player col
-            set player (Grounded isGrounded)
-            return True
+    precollisionCallback <- mkPreSolveCB $ \col-> do
+        groundedCollisionCallback player col
+        return True
 
     set player (defaultHandler {
         preSolveCB = Just precollisionCallback
     })
-    rigidbody <- newEntity $ Shape player $ cCircle 8
+    newEntity $ Shape player $ cCircle 4
+    x <- newEntity ()
+    newEntity $ Constraint player x (RotaryLimitJoint 0 0)
     return player
 
 consFromTileId :: Word32 -> WVec -> Maybe (SystemT World IO Entity)

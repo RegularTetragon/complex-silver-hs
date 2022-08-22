@@ -35,25 +35,26 @@ material = (Friction 0.4, Elasticity 0.2, Density 1)
 triangle = Line [(0,16), (-16, -16), (16, -16), (0,16)]
 square = Line[(-16,-16), (16,-16), (16,16), (-16,16), (-16,-16)]
 
+translate' (V2 x y) = translate (double2Float x) (double2Float y)
+
 
 draw :: SystemT World IO Picture
 draw = do
-    foldDrawM $ drawBody
-    foldDraw $ \(animation :: Animation, pos :: Position) ->
+    picA <- foldDraw $ \(animation :: Animation, Position pos) ->
         color white . translate' pos $ animReel animation !! animState animation
-    where
-        translate' (Position (V2 x y)) = translate (double2Float x) (double2Float y)
+    picB <- foldDrawM drawBody
+    return $ picA <> picB
 
 
 step :: Double -> SystemT World IO ()
 step dT = do
     cmap $ \(_::Shape) -> material
     sequence_ $ ($dT) <$> [
-        stepGrounded,
         stepPhysics,
         stepAnimation,
         stepPlayer,
-        stepCamera
+        stepCamera,
+        stepGrounded
         ]
 
 

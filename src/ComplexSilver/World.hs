@@ -14,9 +14,9 @@ import ComplexSilver.Components.Player
 
 
 makeWorld "World" [
+    ''Physics,
     ''Camera,
     ''Animation,
-    ''Physics,
     ''SpriteSheets,
     ''CameraTarget,
     ''PlayerMovement,

@@ -33,7 +33,6 @@ library
       ComplexSilver.Constructors.MapConstructors
       ComplexSilver.Level
       ComplexSilver.Math
-      ComplexSilver.Physics
       ComplexSilver.Sprites
       ComplexSilver.Systems.Animation
       ComplexSilver.Systems.CameraTarget
