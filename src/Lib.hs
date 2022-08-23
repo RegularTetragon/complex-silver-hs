@@ -75,7 +75,7 @@ initialize = do
     set global (Gravity (V2 0 (-800)))
     set global $ SpriteSheets []
     set global $ Camera 0 4
-display = InWindow "Complex-Silver" (1280, 720) (10, 10)
+display = InWindow "Complex-Silver" (1920, 1080) (10, 10)
 
 someFunc :: IO ()
 someFunc = do

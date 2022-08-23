@@ -27,7 +27,7 @@ consSolid sprite_id pos = do
             animTime = 0.0
         }
         )
-    rigidBody <- newEntity $ Shape entity $ cRectangle 8
+    rigidBody <- newEntity $ Shape entity $ cRectangle 12
 
     return entity
 

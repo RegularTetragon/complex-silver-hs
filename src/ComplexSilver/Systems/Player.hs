@@ -5,8 +5,7 @@ import ComplexSilver.World
 import Apecs.Physics
 import ComplexSilver.Components.Player
 
-playerWalkMax = 128 :: Double
-playerAccel = 512 :: Double
+playerWalkMax = 64 :: Double
 playerJumpSpeed = 200 :: Double
 
 updatePlayerMovement :: Monad m => Double -> (BodyMass, Velocity, PlayerMovement, Grounded) -> m (Force, PlayerMovement)
