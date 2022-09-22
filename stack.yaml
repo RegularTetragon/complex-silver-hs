@@ -44,6 +44,9 @@ extra-deps:
 - linear-1.21.8
 - JuicyPixels-repa-0.7.1.0@sha256:ffbebd96efbf6af83eb14ee9c89259acf5a9a7d504644f2a35577bd66406ae69
 
+nix:
+  enable: true
+  packages: [zlib, libGL, libGLU, freeglut]
 # Override default flag values for local packages and extra-deps
 # flags: {}
 
