@@ -39,6 +39,16 @@ data Animation = Animation {
 ,   animSpeed    :: Double
 ,   animTime     :: Double
 ,   animState    :: Int
+,   animFlipX    :: Bool
+,   animFlipY    :: Bool
+}
+defaultAnimation = Animation {
+  animReel = [],
+  animSpeed = 0,
+  animTime = 0,
+  animState = 0,
+  animFlipX = False,
+  animFlipY = False
 }
 instance Component Animation where
     type Storage Animation = Map Animation

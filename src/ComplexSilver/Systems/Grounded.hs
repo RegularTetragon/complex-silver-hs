@@ -40,11 +40,11 @@ checkGrounded :: Collision -> SystemT World IO Bool
 checkGrounded (Collision norm primaryBodyEntity groundBodyEntity primaryShapeEntity groundShapeEntity) = do
     groundBody :: Body <- get groundBodyEntity
     if groundBody == StaticBody then do
-        (Shape radiusA (Convex vertsA radA)) <- get primaryShapeEntity
-        (Shape radiusB (Convex vertsB radB)) <- get groundShapeEntity
+        (Shape entityA (Convex vertsA radA)) <- get primaryShapeEntity
+        (Shape entityB (Convex vertsB radB)) <- get groundShapeEntity
         Position posA <- get primaryBodyEntity
         Position posB <- get groundBodyEntity
-        
+        liftIO $ print $ show entityA <> "," <> show entityB
         -- Extract Lower Bounds and Upper Bounds
         let (V2 aLeft aDown, V2 aRight aUp) = bounds radA $ (+posA) <$> vertsA
         let (V2 bLeft bDown, V2 bRight bUp) = bounds radB $ (+posB) <$> vertsB

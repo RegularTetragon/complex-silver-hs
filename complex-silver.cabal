@@ -26,9 +26,12 @@ source-repository head
 library
   exposed-modules:
       ComplexSilver.Components.CameraTarget
+      ComplexSilver.Components.Facing
       ComplexSilver.Components.Grounded
       ComplexSilver.Components.Pickup
       ComplexSilver.Components.Player
+      ComplexSilver.Components.TerminalVelocity
+      ComplexSilver.Components.Weapon
       ComplexSilver.Constants
       ComplexSilver.Constructors.MapConstructors
       ComplexSilver.Level
@@ -37,8 +40,10 @@ library
       ComplexSilver.Systems.Animation
       ComplexSilver.Systems.CameraTarget
       ComplexSilver.Systems.Grounded
+      ComplexSilver.Systems.Pickup
       ComplexSilver.Systems.Player
       ComplexSilver.Systems.Spritesheet
+      ComplexSilver.Systems.TerminalVelocity
       ComplexSilver.World
       Lib
   other-modules:
